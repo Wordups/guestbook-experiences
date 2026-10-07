@@ -2,7 +2,7 @@
 
 Concept marketing site for two event recording experiences:
 
-- **The Phone Booth**: mirrored full-body video guestbook triggered by a retro phone.
+- **The Booth**: mirrored full-body video guestbook triggered by a retro phone.
 - **The Confessional**: private seated video lounge with a CONFESS button.
 
 Static site, no build step. Served by GitHub Pages from `main` at the repo root.

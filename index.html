@@ -3,380 +3,284 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Immersive video guestbook experiences: the Phone Booth and the Confessional. Concept site.">
-<meta property="og:title" content="Off the Record">
-<meta property="og:description" content="The guestbook just got interesting. The Phone Booth and the Confessional.">
-<meta property="og:image" content="images/booth-hero.jpg">
 <title>Off the Record</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500;600&display=swap">
+<meta name="description" content="The Booth and the Confessional. Video guestbook experiences for weddings and events in Baltimore.">
+<meta property="og:title" content="Off the Record">
+<meta property="og:description" content="The Booth and the Confessional. The guestbook just got interesting.">
+<meta property="og:image" content="images/booth-hero.jpg">
 <style>
-/* Layout: a private-club scroll. Black rooms, ivory type, gold hardware; the Confessional is the burgundy room. Single dark theme by design. */
+/* Product-page rhythm: big centered headlines, one idea per screen, dark and light bands, rounded tiles. Gold and burgundy stay as the brand accents. */
 :root{
-  --ink:#0c0a09;
-  --room:#15110e;
-  --ivory:#efe6d6;
-  --muted:#a79a86;
-  --gold:#c9a45c;
-  --gold-dim:#7d6638;
-  --wine:#3d0f1a;
-  --wine-deep:#1c070c;
-  --rec:#e0473b;
-  --line:rgba(239,230,214,.14);
-  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
-  --body:"Jost","Futura","Avenir Next","Helvetica Neue",Arial,sans-serif;
-  --gutter:clamp(16px,4vw,56px);
-  --max:1240px;
+  --black:#000;
+  --dark:#111;
+  --tile-dark:#1d1d1f;
+  --light:#f5f5f7;
+  --white:#fff;
+  --ink:#1d1d1f;
+  --ink-2:#6e6e73;
+  --snow:#f5f5f7;
+  --snow-2:#a1a1a6;
+  --gold:#d3ad66;
+  --gold-ink:#8a6a2c;
+  --wine:#2a0a12;
+  --rose:#f0a49b;
+  --rec:#ff453a;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --gutter:clamp(18px,4vw,40px);
+  --radius:28px;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{background:var(--ink);color:var(--ivory);font-family:var(--body);font-weight:300;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:52px}
+body{margin:0;background:var(--black);color:var(--snow);font-family:var(--sans);font-size:17px;line-height:1.47;letter-spacing:-.022em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+[hidden]{display:none!important}
+img,video{max-width:100%}
 a{color:inherit}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.02;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.015em;line-height:1.07;text-wrap:balance}
 p{margin:0}
-.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
-.eyebrow{font-family:var(--body);font-size:12px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
-.lede{font-size:clamp(17px,1.6vw,20px);color:var(--muted);max-width:52ch}
-.btn{display:inline-flex;align-items:center;gap:.6em;font:500 13px/1 var(--body);letter-spacing:.24em;text-transform:uppercase;text-decoration:none;padding:17px 26px;border:1px solid var(--gold);color:var(--ink);background:var(--gold);cursor:pointer;transition:background .3s,color .3s}
-.btn:hover{background:transparent;color:var(--gold)}
-.btn.ghost{background:transparent;color:var(--ivory);border-color:var(--line)}
-.btn.ghost:hover{border-color:var(--gold);color:var(--gold)}
+figure{margin:0}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-.grain{position:fixed;inset:0;pointer-events:none;z-index:60;opacity:.07;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{max-width:1040px;margin-inline:auto;padding-inline:var(--gutter)}
+.wide{max-width:1240px;margin-inline:auto;padding-inline:var(--gutter)}
+.center{text-align:center}
+.photo{display:block;width:100%;height:100%;object-fit:cover}
 
-img.photo{display:block;width:100%;height:100%;object-fit:cover}
-/* Header */
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(12,10,9,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.top .bar{display:flex;align-items:center;gap:28px;min-height:68px}
-.mark{font-family:var(--display);font-size:22px;text-decoration:none;letter-spacing:.02em;white-space:nowrap}
-.mark i{color:var(--gold)}
-.nav{display:flex;gap:26px;margin-left:auto}
-.nav a{white-space:nowrap;font-size:12px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .2s}
-.nav a:hover{color:var(--ivory)}
-.top .btn{padding:13px 18px;font-size:11px;white-space:nowrap}
-.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);color:var(--ivory);width:44px;height:40px;cursor:pointer}
-.burger span{display:block;width:18px;height:1px;background:currentColor;margin:5px auto}
-.drawer{display:block;border-top:1px solid var(--line);padding-block:12px 24px}
-.drawer[hidden]{display:none}
-.drawer a{display:block;padding:14px 0;font-family:var(--display);font-size:28px;text-decoration:none;border-bottom:1px solid var(--line)}
+/* Bands */
+.band{padding-block:clamp(80px,11vw,140px)}
+.band.light{background:var(--light);color:var(--ink)}
+.band.white{background:var(--white);color:var(--ink)}
+.band.wine{background:var(--wine)}
+.title{font-size:clamp(44px,7vw,80px)}
+.title-sm{font-size:clamp(36px,5.2vw,56px)}
+.tag{font-size:clamp(21px,2.4vw,28px);font-weight:400;letter-spacing:.004em;line-height:1.2;margin-top:12px}
+.sub{font-size:clamp(17px,1.6vw,21px);line-height:1.4;letter-spacing:.01em;color:var(--snow-2);max-width:40ch;margin:18px auto 0}
+.light .sub,.white .sub{color:var(--ink-2)}
+.links{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:26px}
+
+.pill{display:inline-block;font-size:17px;font-weight:400;letter-spacing:-.01em;text-decoration:none;padding:11px 22px;border-radius:980px;background:var(--snow);color:var(--black);border:1px solid var(--snow);cursor:pointer;transition:opacity .2s}
+.pill:hover{opacity:.85}
+.pill.outline{background:transparent;color:var(--snow)}
+.light .pill,.white .pill{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.light .pill.outline,.white .pill.outline{background:transparent;color:var(--ink)}
+.pill.gold{background:var(--gold);border-color:var(--gold);color:var(--black)}
+.more{color:var(--gold);text-decoration:none;font-size:17px}
+.light .more,.white .more{color:var(--gold-ink)}
+.more:hover{text-decoration:underline}
+.more::after{content:" \203A"}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(0,0,0,.78);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px)}
+.nav .bar{display:flex;align-items:center;justify-content:space-between;gap:24px;height:48px;max-width:1040px;margin-inline:auto;padding-inline:var(--gutter);font-size:12px;letter-spacing:-.01em}
+.nav .brand{font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap}
+.nav .links-row{display:flex;gap:28px}
+.nav .links-row a{text-decoration:none;color:#d2d2d7;white-space:nowrap}
+.nav .links-row a:hover{color:var(--white)}
+.nav .cta{font-size:12px;padding:5px 12px;border-radius:980px;background:var(--gold);color:var(--black);text-decoration:none;white-space:nowrap}
+.burger{display:none;background:none;border:0;color:var(--snow);font:15px var(--sans);cursor:pointer;padding:6px 0}
+.drawer{display:block;background:var(--black);padding:8px var(--gutter) 24px}
+.drawer a{display:block;padding:10px 0;font-size:24px;font-weight:600;text-decoration:none;border-bottom:1px solid #2a2a2c}
 
 /* Hero */
-.hero{padding-block:clamp(56px,9vw,120px) clamp(48px,7vw,96px);position:relative;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,80px);align-items:center}
-.hero h1{font-size:clamp(50px,7.6vw,120px);font-weight:400}
-.hero h1 em{font-style:italic;color:var(--gold);display:block}
-.hero .copy{display:grid;gap:30px;min-width:0}
-.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
-.occasions{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
-.occasions b{color:var(--gold);font-weight:400;padding-inline:.5em}
-.hero-art{position:relative;width:100%;justify-self:center;border:1px solid var(--gold-dim);aspect-ratio:764/712;max-width:100%}
-.hero-art .caption,.conf-art .caption{position:absolute;right:12px;bottom:10px;margin:0;color:var(--ivory);text-shadow:0 1px 6px #000}
-.hero-art::before{content:"";position:absolute;inset:-18% -30%;background:radial-gradient(closest-side,rgba(201,164,92,.22),transparent 70%);z-index:-1}
-.caption{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:14px;text-align:center}
-@media (prefers-reduced-motion:no-preference){
-  .rise{animation:rise 1.1s cubic-bezier(.2,.7,.2,1) both}
-  .rise.d2{animation-delay:.15s}.rise.d3{animation-delay:.3s}.rise.d4{animation-delay:.45s}
-  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-}
+.hero{padding-top:clamp(56px,8vw,100px);text-align:center;overflow:hidden}
+.hero .title{font-size:clamp(46px,8vw,96px)}
+.hero-img{margin-top:clamp(40px,5vw,64px);border-radius:var(--radius);overflow:hidden;aspect-ratio:764/600;max-width:100%}
+.hero-img img{object-position:50% 35%}
 
-/* Section scaffolding */
-section{position:relative}
-.block{padding-block:clamp(72px,10vw,140px)}
-.rule{border-top:1px solid var(--line)}
-.head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,64px)}
-.head h2{font-size:clamp(38px,6vw,84px)}
+/* Product tiles (homepage grid) */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px;background:var(--black)}
+.tile{position:relative;border-radius:var(--radius);overflow:hidden;min-height:clamp(520px,58vw,700px);display:grid;grid-template-rows:auto 1fr;text-align:center;background:var(--tile-dark);text-decoration:none;min-width:0}
+.tile .copy{padding:clamp(36px,5vw,56px) 24px 20px;position:relative;z-index:1}
+.tile h2{font-size:clamp(34px,4vw,48px)}
+.tile .tag{font-size:clamp(19px,1.8vw,24px)}
+.tile .img{position:relative;overflow:hidden}
+.tile .img img{position:absolute;inset:0}
+.tile.conf{background:var(--wine)}
+.tile .img::before{content:"";position:absolute;inset:0 0 auto 0;height:40%;z-index:1;background:linear-gradient(var(--tile-dark),transparent)}
+.tile.conf .img::before{background:linear-gradient(var(--wine),transparent)}
 
-/* Experience selector */
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,24px)}
-.card{position:relative;display:grid;grid-template-rows:auto 1fr;border:1px solid var(--line);text-decoration:none;overflow:hidden;min-width:0;transition:border-color .4s}
-.card:hover{border-color:var(--gold-dim)}
-.card .art{aspect-ratio:4/3;max-width:100%;overflow:hidden}
-.card .art img{transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
-.card:hover .art img{transform:scale(1.04)}
-.card.booth .art{background:radial-gradient(ellipse at 50% 70%,#2a2117,var(--room) 70%)}
-.card.conf .art{background:radial-gradient(ellipse at 50% 75%,#5a1626,var(--wine-deep) 72%)}
-.card .txt{display:grid;gap:14px;padding:clamp(22px,3vw,36px);align-content:start}
-.card h3{font-size:clamp(28px,3.2vw,42px)}
-.card .tag{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
-.card.conf .tag{color:#d9867f}
-.card p{color:var(--muted);max-width:44ch}
-.card .go{font-size:12px;letter-spacing:.26em;text-transform:uppercase;margin-top:6px}
+/* Film */
+.film{margin:clamp(40px,5vw,64px) auto 0;width:min(100%,380px);border-radius:36px;overflow:hidden;background:#000;box-shadow:0 0 0 10px #1d1d1f,0 0 0 11px #3a3a3c,0 40px 80px rgba(0,0,0,.6)}
+.film video{display:block;width:100%;aspect-ratio:9/16;height:auto}
+.film-ctl{margin-top:28px;display:flex;justify-content:center;gap:12px;align-items:center;font-size:14px;color:var(--snow-2)}
+.film-ctl button{background:none;border:1px solid #424245;color:var(--snow);border-radius:980px;padding:6px 14px;font:14px var(--sans);cursor:pointer}
 
-/* Booth section */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:start}
-.beats{display:grid;gap:0;counter-reset:b}
-.beat{display:grid;grid-template-columns:72px 1fr;gap:18px;padding-block:26px;border-top:1px solid var(--line)}
-.beat:last-child{border-bottom:1px solid var(--line)}
-.beat .n{font-family:var(--display);font-size:34px;color:var(--gold);line-height:1}
-.beat h3{font-family:var(--body);font-size:14px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;margin-bottom:8px;line-height:1.3}
-.beat p{color:var(--muted)}
-.count{display:inline-flex;gap:12px;font-family:var(--display);color:var(--ivory);margin-top:8px;font-size:22px}
-.count span:last-child{color:var(--rec);font-family:var(--body);font-size:12px;letter-spacing:.24em;align-self:center}
-.statement{padding-block:clamp(64px,9vw,120px);text-align:left}
-.statement p{font-family:var(--display);font-size:clamp(32px,5.4vw,76px);line-height:1.08;max-width:18ch;text-wrap:balance}
-.statement p em{color:var(--gold)}
+/* Feature cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:clamp(40px,5vw,64px)}
+.card{background:var(--tile-dark);border-radius:var(--radius);overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0}
+.light .card,.white .card{background:var(--white)}
+.light .card{box-shadow:none}
+.card .img{aspect-ratio:1/1;overflow:hidden}
+.card .txt{padding:24px 26px 30px}
+.card h3{font-size:21px;line-height:1.2;letter-spacing:.01em}
+.card p{margin-top:8px;color:var(--snow-2);font-size:17px}
+.light .card p,.white .card p{color:var(--ink-2)}
 
-/* Simulator */
-.sim{display:grid;gap:18px;justify-items:center}
-.mirror{position:relative;width:min(100%,360px);aspect-ratio:9/16;border-radius:180px 180px 6px 6px;padding:14px;
-  background:linear-gradient(140deg,#e2c27e,#7d6638 30%,#d8b56d 55%,#5d4a26 80%,#c9a45c);box-shadow:0 40px 90px rgba(0,0,0,.6)}
-.glass{position:relative;height:100%;border-radius:166px 166px 2px 2px;overflow:hidden;
-  background:linear-gradient(160deg,#2d2a27 0%,#0f0d0c 45%,#1d1a17 70%,#0b0a09 100%);display:grid;place-items:center;text-align:center;padding:28px}
-.glass::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.07) 38%,transparent 46%,transparent 60%,rgba(255,255,255,.04) 64%,transparent 70%);pointer-events:none}
-.screen{display:grid;gap:14px;justify-items:center}
-.screen .names{font-family:var(--display);font-size:clamp(26px,4vw,34px);letter-spacing:.06em}
-.screen .date{font-size:11px;letter-spacing:.34em;color:var(--muted)}
-.screen .prompt{font-size:12px;letter-spacing:.34em;color:var(--gold);margin-top:22px}
-.screen .big{font-family:var(--display);font-size:clamp(96px,16vw,150px);line-height:1}
-.screen .live{display:flex;align-items:center;gap:10px;font-weight:500;letter-spacing:.26em;font-size:15px}
-.dot{width:12px;height:12px;border-radius:50%;background:var(--rec);box-shadow:0 0 18px var(--rec)}
-@media (prefers-reduced-motion:no-preference){.dot{animation:pulse 1.2s ease-in-out infinite}@keyframes pulse{50%{opacity:.35}}}
-.screen .timer{font-variant-numeric:tabular-nums;font-size:13px;letter-spacing:.2em;color:var(--muted)}
-.screen .saved{font-family:var(--display);font-size:clamp(30px,4.6vw,40px);line-height:1.1}
-.screen .saved em{color:var(--gold);font-style:normal}
-.sim-controls{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
-.sim-note{font-size:12px;color:var(--muted);letter-spacing:.06em;text-align:center}
+.statement{font-size:clamp(36px,6vw,72px);font-weight:600;line-height:1.08;text-align:center;letter-spacing:-.02em}
+.statement span{color:var(--gold)}
 
-/* Demo film */
-.film{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(28px,6vw,96px);align-items:center;margin-bottom:clamp(48px,7vw,96px)}
-.film video{display:block;width:100%;max-width:340px;aspect-ratio:9/16;height:auto;background:#000;border:1px solid var(--gold-dim);box-shadow:0 40px 90px rgba(0,0,0,.6)}
-.film .txt{display:grid;gap:18px;min-width:0}
-.film h3{font-size:clamp(34px,4.6vw,60px)}
-.film ol{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--line)}
-.film li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px;letter-spacing:.2em;text-transform:uppercase}
-.film li span{color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.08em}
-.film .ctl{justify-self:start}
+/* Mirror demo */
+.yours{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,6vw,80px);align-items:center;margin-top:clamp(40px,5vw,64px)}
+.yours .form{text-align:left;display:grid;gap:16px;max-width:400px;justify-self:end;width:100%}
+.mirror-col{display:grid;gap:22px;justify-items:center}
+.mirror{position:relative;width:min(100%,320px);aspect-ratio:9/16;border-radius:160px 160px 6px 6px;padding:11px;background:linear-gradient(140deg,#e2c27e,#7a6236 32%,#d6b36b 56%,#5b4825 82%,#c7a15a);box-shadow:0 30px 60px rgba(0,0,0,.25)}
+.glass{position:relative;height:100%;border-radius:149px 149px 2px 2px;overflow:hidden;background:linear-gradient(165deg,#2b2825,#0e0c0b 48%,#1b1815 74%,#0b0a09);display:grid;place-items:center;text-align:center;padding:24px;color:var(--snow)}
+.glass::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.06) 39%,transparent 46%);pointer-events:none}
+.screen{display:grid;gap:10px;justify-items:center}
+.screen .names{font-size:clamp(24px,3vw,30px);font-weight:600;letter-spacing:.02em;line-height:1.15}
+.screen .date{font-size:12px;letter-spacing:.2em;color:var(--snow-2)}
+.screen .prompt{font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--gold);margin-top:18px}
+.screen .big{font-size:clamp(100px,14vw,140px);font-weight:600;line-height:1;letter-spacing:-.04em}
+.screen .live{display:flex;align-items:center;gap:9px;font-size:17px;font-weight:600;letter-spacing:.06em}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--rec);box-shadow:0 0 12px var(--rec)}
+@media (prefers-reduced-motion:no-preference){.dot{animation:blink 1.2s ease-in-out infinite}@keyframes blink{50%{opacity:.35}}}
+.screen .timer{font-variant-numeric:tabular-nums;font-size:13px;color:var(--snow-2)}
+.screen .saved{font-size:clamp(28px,3.6vw,34px);font-weight:600;line-height:1.15}
+.screen .saved em{font-style:normal;color:var(--gold)}
 
-/* Details strip */
-.details{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:14px}
-.details figure{display:grid;gap:12px;min-width:0;align-content:start}
-.details .frame{aspect-ratio:3/4;overflow:hidden;border:1px solid var(--line);max-width:100%}
-.details figcaption{display:grid;gap:4px}
-.details figcaption b{font-weight:500;font-size:12px;letter-spacing:.26em;text-transform:uppercase}
-.details figcaption span{color:var(--muted);font-size:15px}
+label{display:block;font-size:14px;color:var(--ink-2);margin-bottom:6px;letter-spacing:-.01em}
+input,select,textarea{width:100%;font:17px/1.35 var(--sans);letter-spacing:-.01em;color:var(--ink);background:var(--white);border:1px solid #d2d2d7;border-radius:12px;padding:13px 14px;transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#0071e3;box-shadow:0 0 0 4px rgba(0,113,227,.15)}
+textarea{min-height:120px;resize:vertical}
+.light input,.light select,.light textarea{color-scheme:light}
 
-/* Proof: the working prototype */
-.proof{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:start}
-.proof .shot{border:1px solid var(--line);background:var(--room);padding:clamp(10px,1.4vw,16px);display:grid;gap:12px}
-.proof .shot img{display:block;width:100%;height:auto;border-radius:8px}
-.proof .shot figcaption{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
-.screens{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
-.screens figure{display:grid;gap:8px;min-width:0}
-.screens img{display:block;width:100%;height:auto;border:1px solid var(--line)}
-.screens figcaption{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.promises{display:grid;border-top:1px solid var(--line)}
-.promise{display:grid;grid-template-columns:1fr auto;gap:6px 16px;padding:22px 0;border-bottom:1px solid var(--line)}
-.promise h3{font-family:var(--body);font-size:13px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;line-height:1.4}
-.promise p{grid-column:1/-1;color:var(--muted);font-size:15px;max-width:52ch}
-.status{font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:4px 8px;border:1px solid var(--line);color:var(--muted);align-self:start;white-space:nowrap}
-.status.ok{border-color:var(--gold-dim);color:var(--gold)}
-
-/* Confessional room */
-.confessional{background:linear-gradient(180deg,var(--ink) 0,var(--wine-deep) 140px,var(--wine-deep) calc(100% - 140px),var(--ink) 100%)}
-.confessional .eyebrow{color:#d9867f}
-.confessional .btn{background:#b8323f;border-color:#b8323f;color:var(--ivory)}
-.confessional .btn:hover{background:transparent;color:#e8a29b}
-.confessional .btn.ghost{background:transparent;border-color:var(--line)}
-.conf-hero{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:center}
-.conf-hero h2{font-size:clamp(36px,5.4vw,76px)}
-.conf-hero h2 em{color:#e8a29b}
-.conf-art{aspect-ratio:764/712;max-width:100%;border:1px solid rgba(232,162,155,.25);position:relative}
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:clamp(56px,7vw,96px);border-top:1px solid var(--line)}
-.step{padding:28px 22px 28px 0;display:grid;gap:10px;align-content:start;min-width:0}
-.step + .step{padding-left:22px;border-left:1px solid var(--line)}
-.step .n{font-family:var(--display);font-size:30px;color:#e8a29b;line-height:1}
-.step h3{font-family:var(--body);font-size:13px;font-weight:500;letter-spacing:.26em;text-transform:uppercase}
-.step p{color:var(--muted);font-size:15px}
-.step ul{list-style:none;margin:0;padding:0;color:var(--muted);font-size:15px}
-.conf-sim{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,72px);align-items:center;margin-top:clamp(64px,8vw,110px)}
-.monitor{width:min(100%,460px);aspect-ratio:4/3;border:10px solid #0a0607;border-radius:10px;background:radial-gradient(ellipse at 50% 40%,#2a0c13,#0d0406 75%);display:grid;place-items:center;text-align:center;padding:24px;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(232,162,155,.12)}
-.monitor .screen .big{font-size:clamp(84px,12vw,120px)}
-.monitor .screen .saved em{color:#e8a29b}
-.monitor .screen .prompt{color:#e8a29b}
-.confess-btn{width:96px;height:96px;border-radius:50%;border:6px solid #2a0c13;background:radial-gradient(circle at 40% 35%,#ff7a6b,#c62b2b 55%,#7e1414);box-shadow:0 0 0 2px #5a1626,0 0 40px rgba(224,71,59,.55),inset 0 -6px 12px rgba(0,0,0,.35);cursor:pointer;color:transparent;transition:transform .12s}
+/* Confessional */
+.conf-img{margin-top:clamp(40px,5vw,64px);border-radius:var(--radius);overflow:hidden;aspect-ratio:764/560;max-width:100%}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,48px);margin-top:clamp(48px,6vw,80px)}
+.three h3{font-size:21px;line-height:1.2}
+.three p{margin-top:8px;color:var(--snow-2)}
+.wine .three p{color:#c9a9ac}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px var(--gutter) 20px;margin-top:clamp(40px,5vw,56px);scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.prompt-card{flex:0 0 min(72vw,280px);scroll-snap-align:center;aspect-ratio:4/5;border-radius:24px;background:#3b0f19;padding:28px;display:flex;align-items:flex-end;font-size:26px;font-weight:600;line-height:1.15}
+.rail-note{margin-top:8px;color:#c9a9ac;font-size:14px}
+.conf-demo{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(28px,5vw,64px);align-items:center;margin-top:clamp(56px,7vw,96px);background:#1a060b;border-radius:var(--radius);padding:clamp(28px,4vw,48px)}
+.monitor{width:100%;max-width:440px;aspect-ratio:4/3;border-radius:14px;background:radial-gradient(ellipse at 50% 40%,#2a0c13,#0c0405 75%);display:grid;place-items:center;text-align:center;padding:22px;box-shadow:0 0 0 8px #000}
+.monitor .screen .big{font-size:clamp(80px,10vw,110px)}
+.monitor .screen .saved em{color:var(--rose)}
+.monitor .screen .prompt{color:var(--rose)}
+.press{display:grid;gap:14px;justify-items:center;text-align:center}
+.press h3{font-size:24px}
+.press p{color:#c9a9ac;max-width:24ch}
+.confess-btn{width:96px;height:96px;border-radius:50%;border:6px solid #2a0c13;background:radial-gradient(circle at 40% 35%,#ff7a6b,#c62b2b 55%,#7e1414);box-shadow:0 0 0 2px #5a1626,0 0 40px rgba(255,69,58,.5),inset 0 -6px 12px rgba(0,0,0,.35);cursor:pointer;transition:transform .12s;margin-top:6px}
 .confess-btn:active{transform:scale(.95)}
-.confess-btn:disabled{opacity:.45;cursor:default;box-shadow:0 0 0 2px #5a1626}
-.btn-label{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);text-align:center}
-
-/* Prompts rail */
-.prompts{margin-top:clamp(64px,8vw,110px)}
-.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:18px;scrollbar-color:var(--gold-dim) transparent}
-.prompt-card{flex:0 0 min(78vw,300px);scroll-snap-align:start;aspect-ratio:3/4;border:1px solid rgba(232,162,155,.22);background:linear-gradient(180deg,rgba(90,22,38,.35),rgba(12,4,6,.6));padding:26px;display:flex;flex-direction:column;justify-content:space-between}
-.prompt-card .k{font-size:11px;letter-spacing:.3em;color:#e8a29b;text-transform:uppercase}
-.prompt-card p{font-family:var(--display);font-size:clamp(24px,2.6vw,30px);line-height:1.12}
-.rail-note{color:var(--muted);margin-top:10px}
+.confess-btn:disabled{opacity:.45;cursor:default}
+.btn-label{font-size:14px;color:#c9a9ac}
 
 /* Compare */
-.compare{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(18px,3vw,40px);align-items:stretch}
-.col{border:1px solid var(--line);padding:clamp(24px,3vw,40px);display:grid;gap:18px;align-content:start;min-width:0}
-.col h3{font-size:clamp(26px,3vw,38px)}
-.col ul{list-style:none;margin:0;padding:0;display:grid}
-.col li{padding:12px 0;border-top:1px solid var(--line);font-size:15px;letter-spacing:.04em}
-.col.c2{border-color:rgba(232,162,155,.25);background:linear-gradient(180deg,rgba(61,15,26,.4),transparent)}
-.col.c2 .eyebrow{color:#d9867f}
-.vs{align-self:center;font-family:var(--display);font-style:italic;font-size:28px;color:var(--gold)}
-.upsell{margin-top:36px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:30px}
-.upsell p{font-family:var(--display);font-size:clamp(22px,2.6vw,32px);max-width:28ch}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);margin-top:clamp(48px,6vw,72px)}
+.compare .col{text-align:center;display:grid;gap:8px;align-content:start}
+.compare .thumb{width:120px;height:120px;border-radius:24px;overflow:hidden;margin:0 auto 14px}
+.compare h3{font-size:28px}
+.compare .col > p{color:var(--ink-2)}
+.compare ul{list-style:none;margin:18px 0 0;padding:0;display:grid}
+.compare li{padding:16px 0;border-top:1px solid #d2d2d7;font-size:17px}
+.compare li small{display:block;color:var(--ink-2);font-size:14px;margin-top:2px}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:clamp(48px,6vw,72px);text-align:left}
+.steps div{border-top:1px solid #424245;padding-top:18px}
+.steps b{display:block;font-size:40px;font-weight:600;color:var(--gold);line-height:1;margin-bottom:12px;letter-spacing:-.03em}
+.steps h3{font-size:19px}
+.steps p{margin-top:6px;color:var(--snow-2);font-size:15px}
 
 /* Deliverables */
-.keep{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
-.keep > div{padding:30px 24px 30px 0;display:grid;gap:10px;align-content:start;min-width:0}
-.keep > div + div{padding-left:24px;border-left:1px solid var(--line)}
-.keep h3{font-size:24px}
-.keep p{color:var(--muted);font-size:15px}
-.soon{justify-self:start;font-size:10px;letter-spacing:.24em;text-transform:uppercase;border:1px solid var(--line);padding:4px 8px;color:var(--muted)}
+.gets{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:clamp(48px,6vw,72px)}
+.get{background:var(--white);border-radius:var(--radius);padding:clamp(28px,4vw,44px);display:grid;gap:8px;align-content:start;text-align:left}
+.get h3{font-size:24px}
+.get p{color:var(--ink-2)}
+.soon{justify-self:start;font-size:12px;font-weight:600;color:var(--gold-ink);letter-spacing:0}
 
-/* Customize */
-.custom{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
-.chips span{border:1px solid var(--line);padding:8px 14px;font-size:13px;letter-spacing:.06em;color:var(--muted)}
-.try{display:grid;gap:14px;margin-top:30px;max-width:420px}
-.custom .mirror{width:min(100%,320px)}
-
-/* Events */
-.events{display:flex;flex-wrap:wrap;gap:0 clamp(18px,3vw,40px);font-family:var(--display);font-size:clamp(34px,5.6vw,80px);line-height:1.15}
-.events span:nth-child(even){font-style:italic;color:var(--gold)}
-.events span::after{content:"\00B7";color:var(--gold-dim);margin-left:clamp(18px,3vw,40px);font-style:normal}
-.events span:last-child::after{content:none}
+/* Built */
+.built{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center;margin-top:clamp(48px,6vw,72px)}
+.screens{display:grid;gap:12px}
+.screens .main{border-radius:20px;overflow:hidden;box-shadow:0 0 0 8px #1d1d1f,0 30px 60px rgba(0,0,0,.25)}
+.screens .main img{display:block;width:100%;height:auto}
+.screens .row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.screens .row img{display:block;width:100%;height:auto;border-radius:10px}
+.facts{display:grid;gap:26px;text-align:left}
+.facts h3{font-size:21px;line-height:1.2}
+.facts p{margin-top:4px;color:var(--ink-2)}
+.facts .later{font-size:12px;font-weight:600;color:var(--gold-ink);margin-left:6px;letter-spacing:0}
 
 /* Gallery */
-.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.tile{position:relative;overflow:hidden;border:1px solid var(--line);aspect-ratio:1/1;max-width:100%}
-.tile.tall{grid-row:span 2;aspect-ratio:auto}
-.tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 14px 12px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--ivory);background:linear-gradient(transparent,rgba(12,10,9,.85))}
-.tile.conf{border-color:rgba(232,162,155,.2)}
-figure{margin:0}
-
-/* How it works */
-.how{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
-.how > div{padding:30px 20px 30px 0;display:grid;gap:12px;align-content:start;min-width:0}
-.how > div + div{padding-left:20px;border-left:1px solid var(--line)}
-.how .n{font-family:var(--display);font-size:46px;color:var(--gold);line-height:1}
-.how h3{font-family:var(--body);font-size:13px;font-weight:500;letter-spacing:.26em;text-transform:uppercase}
-.how p{color:var(--muted);font-size:15px}
-
-/* About */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:start}
-.formula{display:grid;border-top:1px solid var(--line)}
-.formula div{display:flex;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);font-family:var(--display);font-size:clamp(22px,2.4vw,30px)}
-.formula div span:first-child{color:var(--gold);font-family:var(--body);font-size:16px;width:1em}
-.about .body{display:grid;gap:20px;color:var(--muted);max-width:56ch}
-.about .body strong{color:var(--ivory);font-weight:400}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:clamp(40px,5vw,56px)}
+.gallery figure{aspect-ratio:1/1;border-radius:20px;overflow:hidden;max-width:100%}
 
 /* Inquiry */
-.inquire{background:radial-gradient(ellipse at 50% 0%,rgba(201,164,92,.12),transparent 60%)}
-.inquire-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,96px);align-items:start}
-.inquire h2{font-size:clamp(44px,7vw,100px)}
-.packages{margin-top:28px;display:grid;gap:8px;color:var(--muted)}
-.packages strong{color:var(--ivory);font-weight:400;font-family:var(--display);font-size:22px}
-form{display:grid;grid-template-columns:1fr 1fr;gap:22px 20px}
-.field{display:grid;gap:8px;min-width:0}
-.field.full{grid-column:1/-1}
-label,.legend{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
-input,select,textarea{width:100%;font:300 17px/1.4 var(--body);color:var(--ivory);background:transparent;border:0;border-bottom:1px solid var(--line);padding:10px 0;border-radius:0;transition:border-color .2s}
-textarea{min-height:110px;resize:vertical;border:1px solid var(--line);padding:12px}
-select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 12px) 55%,calc(100% - 6px) 55%;background-size:6px 6px;background-repeat:no-repeat}
-select option{background:var(--room);color:var(--ivory)}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
-input::placeholder,textarea::placeholder{color:rgba(167,154,134,.55)}
-input[type=date]{color-scheme:dark}
-.choices{display:flex;flex-wrap:wrap;gap:8px;border:0;padding:0;margin:0}
-.choices label{position:relative;cursor:pointer;letter-spacing:.08em;text-transform:none;font-size:15px;color:var(--ivory);border:1px solid var(--line);padding:10px 16px;transition:border-color .2s,background .2s}
-.choices input{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
-.choices label:has(input:checked){border-color:var(--gold);background:rgba(201,164,92,.12);color:var(--gold)}
-.choices label:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:2px}
-.err{color:#e8a29b;font-size:13px;min-height:1em}
-.submit-row{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
-.concept{font-size:12px;color:var(--muted);letter-spacing:.04em;max-width:40ch}
-.done{border:1px solid var(--gold-dim);padding:clamp(28px,4vw,48px);display:grid;gap:16px}
-.done h3{font-size:clamp(36px,5vw,60px)}
-.done p{color:var(--muted)}
-.done dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:8px 0 0;font-size:15px}
-.done dt{color:var(--muted);font-size:11px;letter-spacing:.22em;text-transform:uppercase;align-self:center}
-.done dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.ask{text-align:left;max-width:720px;margin:clamp(40px,5vw,56px) auto 0;background:var(--white);border-radius:var(--radius);padding:clamp(24px,4vw,48px)}
+form{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.full{grid-column:1/-1}
+.choices{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;border:0;padding:0;margin:0}
+.choices label{margin:0;position:relative;display:grid;place-items:center;text-align:center;min-height:56px;padding:10px;border:1px solid #d2d2d7;border-radius:12px;color:var(--ink);font-size:15px;cursor:pointer}
+.choices input{position:absolute;opacity:0;width:1px;height:1px}
+.choices label:has(input:checked){border:2px solid #0071e3}
+.choices label:has(input:focus-visible){box-shadow:0 0 0 4px rgba(0,113,227,.2)}
+.err{color:#d70015;font-size:14px;min-height:1em}
+.send{display:grid;gap:12px;justify-items:center;text-align:center}
+.send .pill{background:#0071e3;border-color:#0071e3;color:#fff;min-width:220px}
+.fine{font-size:12px;color:var(--ink-2);letter-spacing:-.01em}
+.done{display:grid;gap:12px;color:var(--ink);text-align:center}
+.done h3{font-size:32px}
+.done dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:10px auto 0;text-align:left;font-size:15px}
+.done dt{color:var(--ink-2)}
+.done dd{margin:0;overflow-wrap:anywhere}
 
-/* Footer */
-footer{border-top:1px solid var(--line);padding-block:48px calc(48px + env(safe-area-inset-bottom,0px))}
-footer .wrap{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:end}
-footer .lines{display:grid;gap:6px;font-size:13px;color:var(--muted)}
-footer .family{display:grid;gap:4px;font-family:var(--display);font-size:20px}
-footer .family em{color:var(--gold)}
+footer{background:var(--light);color:var(--ink-2);font-size:12px;padding-block:28px calc(28px + env(safe-area-inset-bottom,0px))}
+footer .wrap{display:grid;gap:10px}
+footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;border-top:1px solid #d2d2d7;padding-top:14px}
+footer a{color:var(--ink);text-decoration:none}
+footer a:hover{text-decoration:underline}
 
-/* Sticky mobile CTA */
 .sticky{display:none}
 
-@media (max-width:1180px){
-  .nav,.top .btn{display:none}
+@media (max-width:900px){
+  .nav .links-row,.nav .cta{display:none}
   .burger{display:block}
-}
-@media (max-width:1020px){
+  .tiles{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr;max-width:480px;margin-inline:auto}
+  .yours{grid-template-columns:1fr}
+  .yours .form{justify-self:center}
+  .three{grid-template-columns:1fr;text-align:center}
+  .conf-demo{grid-template-columns:1fr;justify-items:center}
+  .compare{grid-template-columns:1fr;gap:56px}
   .steps{grid-template-columns:1fr 1fr}
-  .step{padding:24px 18px 24px 0;border-bottom:1px solid var(--line)}
-  .step + .step{padding-left:0;border-left:0}
-  .step:nth-child(even){padding-left:18px;border-left:1px solid var(--line)}
-  .how{grid-template-columns:1fr 1fr}
-  .how > div{border-bottom:1px solid var(--line)}
-  .how > div + div{padding-left:0;border-left:0}
-  .how > div:nth-child(even){padding-left:20px;border-left:1px solid var(--line)}
-  .keep{grid-template-columns:1fr 1fr}
-  .keep > div{border-bottom:1px solid var(--line)}
-  .keep > div + div{padding-left:0;border-left:0}
-  .keep > div:nth-child(even){padding-left:24px;border-left:1px solid var(--line)}
-}
-@media (max-width:780px){
-  body{font-size:16px;padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
-  .hero .wrap,.split,.conf-hero,.conf-sim,.custom,.about,.inquire-grid{grid-template-columns:1fr}
-  .hero-art{max-width:300px}
-  .pair{grid-template-columns:1fr}
-  .compare{grid-template-columns:1fr}
-  .vs{justify-self:center}
+  .gets{grid-template-columns:1fr}
+  .built{grid-template-columns:1fr}
   .gallery{grid-template-columns:1fr 1fr}
-  .details{grid-template-columns:1fr 1fr}
-  .details figure:first-child{grid-column:1/-1}
-  .details figure:first-child .frame{aspect-ratio:4/5}
-  .proof{grid-template-columns:1fr}
-  .film{grid-template-columns:minmax(0,1fr);justify-items:center}
-  .film .txt{justify-self:stretch}
-  form{grid-template-columns:1fr}
-  .beat{grid-template-columns:52px 1fr}
-  .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:55;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:rgba(12,10,9,.94);border-top:1px solid var(--line);gap:10px}
-  .sticky .btn{flex:1;justify-content:center}
 }
-@media (max-width:460px){
-  .steps,.how,.keep{grid-template-columns:1fr}
-  .step:nth-child(even),.how > div:nth-child(even),.keep > div:nth-child(even){padding-left:0;border-left:0}
+@media (max-width:600px){
+  body{padding-bottom:calc(68px + env(safe-area-inset-bottom,0px))}
+  form{grid-template-columns:1fr}
+  .choices{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr}
+  .hero-img{aspect-ratio:4/5}
+  .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:45;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(0,0,0,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+  .sticky .pill{flex:1;text-align:center;background:var(--gold);border-color:var(--gold);color:#000}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
-<style>body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
 </head>
 <body>
 
-
-<div class="grain" aria-hidden="true"></div>
-
-
-<header class="top">
-  <div class="wrap bar">
-    <a class="mark" href="#top" aria-label="Off the Record, home">Off the <i>Record</i></a>
-    <nav class="nav" aria-label="Main">
-      <a href="#experiences">Experiences</a>
+<header class="nav">
+  <div class="bar">
+    <a class="brand" href="#top">Off the Record</a>
+    <nav class="links-row" aria-label="Main">
+      <a href="#booth">The Booth</a>
+      <a href="#confessional">The Confessional</a>
+      <a href="#compare">Compare</a>
       <a href="#how">How It Works</a>
-      <a href="#events">Events</a>
       <a href="#gallery">Gallery</a>
       <a href="#about">About</a>
-      <a href="#inquire">Inquire</a>
     </nav>
-    <a class="btn" href="#inquire">Book an experience</a>
-    <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <a class="cta" href="#inquire">Inquire</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer">Menu</button>
   </div>
-  <div class="drawer wrap" id="drawer" hidden>
-    <a href="#experiences">Experiences</a>
+  <div class="drawer" id="drawer" hidden>
+    <a href="#booth">The Booth</a>
+    <a href="#confessional">The Confessional</a>
+    <a href="#compare">Compare</a>
     <a href="#how">How It Works</a>
-    <a href="#events">Events</a>
     <a href="#gallery">Gallery</a>
     <a href="#about">About</a>
     <a href="#inquire">Inquire</a>
@@ -387,346 +291,251 @@ footer .family em{color:var(--gold)}
 
 <section class="hero">
   <div class="wrap">
+    <h1 class="title">The guestbook just got interesting.</h1>
+    <p class="sub">Video guestbook experiences for weddings, birthdays and events of every kind.</p>
+    <div class="links">
+      <a class="pill" href="#booth">Meet the Booth</a>
+      <a class="pill outline" href="#inquire">Ask about your date</a>
+    </div>
+  </div>
+  <div class="wide">
+    <div class="hero-img"><img class="photo" src="images/booth-hero.jpg" alt="The Booth at a candlelit reception, its mirror reading Brian and Kim, pick up the phone"></div>
+  </div>
+</section>
+
+<div class="tiles" id="experiences">
+  <a class="tile" href="#booth">
     <div class="copy">
-      <p class="eyebrow rise">Event recording experiences</p>
-      <h1 class="rise d2">The guestbook <em>just got interesting.</em></h1>
-      <p class="lede rise d3">Immersive video experiences that capture the people, stories and moments your photographer can't.</p>
-      <div class="ctas rise d4">
-        <a class="btn" href="#experiences">Explore the experiences</a>
-        <a class="btn ghost" href="#inquire">Inquire for your event</a>
-      </div>
-      <p class="occasions rise d4">Weddings<b>&middot;</b>Birthdays<b>&middot;</b>Private Events<b>&middot;</b>Corporate Events</p>
+      <h2>The Booth</h2>
+      <p class="tag">Pick up. You're live.</p>
+      <p class="links"><span class="more">Learn more</span></p>
     </div>
-    <figure class="hero-art rise d3">
-      <img class="photo" src="images/booth-hero.jpg" alt="The Phone Booth: a black and gold booth glowing at a candlelit reception, its mirror reading Brian and Kim, pick up the phone" fetchpriority="high">
-      <figcaption class="caption">Concept render</figcaption>
-    </figure>
-  </div>
-</section>
+    <div class="img"><img class="photo" src="images/booth-mirror.jpg" alt="" loading="lazy"></div>
+  </a>
+  <a class="tile conf" href="#confessional">
+    <div class="copy">
+      <h2>The Confessional</h2>
+      <p class="tag">Sit down. Press the button.<br>Tell us everything.</p>
+      <p class="links"><span class="more" style="color:var(--rose)">Learn more</span></p>
+    </div>
+    <div class="img"><img class="photo" src="images/conf-button.jpg" alt="" loading="lazy"></div>
+  </a>
+</div>
 
-<section id="experiences" class="block rule">
+<section class="band center" id="booth">
   <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">The experiences</p>
-      <h2>Your guests don't just sign the guestbook. <em style="color:var(--gold)">They become part of it.</em></h2>
-    </div>
-    <div class="pair">
-      <a class="card booth" href="#phone-booth">
-        <div class="art"><img class="photo" src="images/booth-hero.jpg" alt="" loading="lazy"></div>
-        <div class="txt">
-          <span class="tag">The Phone Booth</span>
-          <h3>Pick up the phone. Leave them something worth replaying.</h3>
-          <p>A mirrored video guestbook that captures the message and the moment.</p>
-          <span class="go">Enter the Phone Booth &rarr;</span>
-        </div>
-      </a>
-      <a class="card conf" href="#confessional">
-        <div class="art"><img class="photo" src="images/conf-hero.jpg" alt="" loading="lazy"></div>
-        <div class="txt">
-          <span class="tag">The Confessional</span>
-          <h3>Take a seat. Tell us what really happened.</h3>
-          <p>A private video lounge built for stories, advice, memories and whatever your guests decide to confess.</p>
-          <span class="go">Enter the Confessional &rarr;</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="phone-booth" class="block rule">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">The Phone Booth &middot; Pick up. You're live.</p>
-      <h2>Not your grandmother's guestbook.</h2>
-    </div>
-    <div class="split">
-      <div class="beats">
-        <div class="beat"><span class="n">01</span><div><h3>Step inside</h3><p>A full-length mirror in a private space. Your guest sees themselves and your event's own welcome screen.</p></div></div>
-        <div class="beat"><span class="n">02</span><div><h3>Pick up</h3><p>Lifting the retro phone starts the experience. No buttons, no instructions.</p></div></div>
-        <div class="beat"><span class="n">03</span><div><h3>You're live</h3><p>The mirror counts down, then guests talk into the phone while their full look, expressions and message are captured on video.</p><div class="count" aria-hidden="true"><span>3</span><span>2</span><span>1</span><span>&#9679; You're live</span></div></div></div>
-        <div class="beat"><span class="n">04</span><div><h3>Hang up</h3><p>The message saves automatically and the mirror resets for the next guest.</p></div></div>
-      </div>
-      <div class="sim" id="boothSim">
-        <div class="mirror">
-          <div class="glass"><div class="screen" aria-live="polite"></div></div>
-        </div>
-        <div class="sim-controls"></div>
-        <p class="sim-note">Try it. This is what your guests see in the mirror.</p>
-      </div>
-    </div>
-  </div>
-  <div class="statement wrap">
-    <p>We don't just record what they said. <em>We record how they looked when they said it.</em></p>
-  </div>
-  <div class="wrap">
+    <h2 class="title">The Booth</h2>
+    <p class="tag">Pick up. You're live.</p>
+    <p class="sub">A full-length mirror, a vintage phone and a camera that gets the whole look. Guests lift the receiver, the mirror counts them in, and they leave you a message.</p>
     <div class="film">
-      <video id="demoFilm" src="media/phone-booth-demo.mp4" poster="media/phone-booth-demo-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Concept demo: the Phone Booth mirror counts down 3, 2, 1, goes live, then saves the message"></video>
-      <div class="txt">
-        <p class="eyebrow">Concept demo &middot; 16 seconds</p>
-        <h3>Watch the 3, 2, 1.</h3>
-        <p class="lede">From the reception floor to the mirror. This is the exact sequence your guests see.</p>
-        <ol>
-          <li>Pick up the phone <span>0:03</span></li>
-          <li>3, 2, 1 <span>0:06</span></li>
-          <li>You're live <span>0:09</span></li>
-          <li>Message saved <span>0:12</span></li>
-        </ol>
-        <button class="btn ghost ctl" id="filmToggle" type="button">Pause</button>
-      </div>
+      <video id="demoFilm" src="media/phone-booth-demo.mp4" poster="media/phone-booth-demo-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Concept demo: the Booth mirror counts down 3, 2, 1, goes live, then saves the message"></video>
     </div>
-    <div class="details">
-      <figure><div class="frame"><img class="photo" src="images/booth-mirror.jpg" alt="Inside the booth: a full-height mirror reading Ready, pick up the phone, 3, 2, 1, you're live" loading="lazy"></div><figcaption><b>The mirror</b><span>Full height, so the whole outfit makes the video.</span></figcaption></figure>
-      <figure><div class="frame"><img class="photo" src="images/booth-handset.jpg" alt="A black and brass retro handset hanging on a wood panel wall" loading="lazy"></div><figcaption><b>The phone</b><span>Lift the handset and the booth takes it from there.</span></figcaption></figure>
-      <figure><div class="frame"><img class="photo" src="images/booth-camera.jpg" alt="A small camera lens set into the black trim above the mirror" loading="lazy"></div><figcaption><b>The camera</b><span>Tucked above the mirror, out of the way.</span></figcaption></figure>
+    <div class="film-ctl"><span>Concept demo, 16 seconds</span><button id="filmToggle" type="button">Pause</button></div>
+  </div>
+</section>
+
+<section class="band" style="padding-top:0">
+  <div class="wrap">
+    <p class="statement">Every outfit. Every pose.<br><span>Every word.</span></p>
+    <div class="cards">
+      <div class="card"><div class="img"><img class="photo" src="images/booth-camera.jpg" alt="Camera lens set into the trim above the mirror" loading="lazy"></div><div class="txt"><h3>Head to toe.</h3><p>The camera sits above the mirror and frames the whole person, so the outfit makes the video too.</p></div></div>
+      <div class="card"><div class="img"><img class="photo" src="images/booth-handset.jpg" alt="Black and brass handset on a wood panel wall" loading="lazy"></div><div class="txt"><h3>Nothing to figure out.</h3><p>Lifting the receiver starts everything. Hanging up saves it. There are no buttons to explain.</p></div></div>
+      <div class="card"><div class="img"><img class="photo" src="images/booth-countdown.jpg" alt="Mirror countdown reading 3, 2, 1, you're live" loading="lazy"></div><div class="txt"><h3>Words in the mirror.</h3><p>A screen behind two-way glass puts the countdown right in their reflection.</p></div></div>
     </div>
   </div>
 </section>
 
-<section id="confessional" class="block confessional">
+<section class="band light center" id="customize">
   <div class="wrap">
-    <div class="conf-hero">
-      <div class="head" style="margin:0">
-        <p class="eyebrow">The Confessional &middot; Sit down. Press the button.</p>
-        <h2>What happens in the Confessional <em>doesn't necessarily stay there.</em></h2>
-        <p class="lede">Grab your people. Take a seat. Press the button.</p>
+    <h2 class="title-sm">Make it yours.</h2>
+    <p class="sub">Names, date, welcome line, countdown, thank-you screen, colors and logos. Type yours in, then pick up the phone.</p>
+    <div class="yours">
+      <div class="form">
+        <div><label for="cName">Names</label><input id="cName" maxlength="26" value="Brian &amp; Kim"></div>
+        <div><label for="cDate">Date</label><input id="cDate" maxlength="22" value="October 24, 2027"></div>
       </div>
-      <figure class="conf-art">
-        <img class="photo" src="images/conf-hero.jpg" alt="The Confessional: a curved red velvet banquette behind heavy drapes, with a marble table holding a vintage microphone and a glowing Confess button" loading="lazy">
-        <figcaption class="caption">Concept render</figcaption>
-      </figure>
-    </div>
-
-    <div class="steps">
-      <div class="step"><span class="n">01</span><h3>Enter</h3><p>Close the curtain. Leave the reception outside.</p></div>
-      <div class="step"><span class="n">02</span><h3>Take a seat</h3><p>One person. A couple. Three bridesmaids. Four groomsmen who absolutely should not have been given a microphone.</p></div>
-      <div class="step"><span class="n">03</span><h3>Press confess</h3><p>Hit the illuminated button. The screen asks if you're ready, counts you in, and tells you to confess.</p></div>
-      <div class="step"><span class="n">04</span><h3>Talk</h3><ul><li>Stories</li><li>Marriage advice</li><li>Memories</li><li>Predictions</li><li>Roasts</li><li>Confessions</li></ul></div>
-      <div class="step"><span class="n">05</span><h3>Save</h3><p>The video joins the event collection automatically.</p></div>
-    </div>
-
-    <div class="conf-sim" id="confSim">
-      <div class="sim">
-        <div class="monitor"><div class="screen" aria-live="polite"></div></div>
+      <div class="mirror-col" id="boothSim">
+        <div class="mirror"><div class="glass"><div class="screen" aria-live="polite"></div></div></div>
+        <div class="sim-controls"></div>
       </div>
-      <div class="sim" style="justify-items:start">
-        <p class="eyebrow">Press the button</p>
-        <p class="lede" style="color:var(--ivory)">This is the screen your guests face from the banquette. Give it a press.</p>
-        <div class="sim-controls" style="justify-content:start;align-items:center;gap:22px"></div>
-      </div>
-    </div>
-
-    <div class="prompts">
-      <p class="eyebrow" style="margin-bottom:22px">On-screen prompts</p>
-      <div class="rail" tabindex="0" aria-label="Example prompts, scroll sideways">
-        <div class="prompt-card"><span class="k">Prompt</span><p>How do you know the couple?</p></div>
-        <div class="prompt-card"><span class="k">Prompt</span><p>What's your best marriage advice?</p></div>
-        <div class="prompt-card"><span class="k">Prompt</span><p>Tell us your favorite story about them.</p></div>
-        <div class="prompt-card"><span class="k">Prompt</span><p>Who's going to cry first?</p></div>
-        <div class="prompt-card"><span class="k">Prompt</span><p>What really happened tonight?</p></div>
-        <div class="prompt-card"><span class="k">Prompt</span><p>Make a prediction for their 10th anniversary.</p></div>
-      </div>
-      <p class="rail-note">Prompts can be customized for every event.</p>
     </div>
   </div>
 </section>
 
-<section class="block">
+<section class="band wine center" id="confessional">
   <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Better together</p>
-      <h2>One event. Two completely different ways to remember it.</h2>
+    <h2 class="title">The Confessional</h2>
+    <p class="tag">Sit down. Press the button. Tell us everything.</p>
+    <p class="sub" style="color:#c9a9ac">A curtained lounge with a velvet couch, a table mic and one red button. Built for the stories nobody tells in a toast.</p>
+  </div>
+  <div class="wide">
+    <div class="conf-img"><img class="photo" src="images/conf-hero.jpg" alt="The Confessional: a curved red velvet couch behind heavy drapes, with a vintage microphone and a glowing Confess button" loading="lazy"></div>
+  </div>
+  <div class="wrap">
+    <div class="three">
+      <div><h3>Close the curtain.</h3><p>The reception goes quiet behind you.</p></div>
+      <div><h3>Bring your people.</h3><p>One person or four. The groomsmen who should not have a microphone are welcome.</p></div>
+      <div><h3>Press confess.</h3><p>The screen asks if you're ready, counts you in, and you talk.</p></div>
     </div>
+  </div>
+  <div class="rail" tabindex="0" aria-label="Example prompts">
+    <div class="prompt-card">How do you know the couple?</div>
+    <div class="prompt-card">What's your best marriage advice?</div>
+    <div class="prompt-card">Tell us your favorite story about them.</div>
+    <div class="prompt-card">Who's going to cry first?</div>
+    <div class="prompt-card">What really happened tonight?</div>
+    <div class="prompt-card">Make a prediction for their tenth anniversary.</div>
+  </div>
+  <div class="wrap">
+    <p class="rail-note">Prompts on the screen get people talking. Write your own for your event.</p>
+    <div class="conf-demo" id="confSim">
+      <div class="monitor"><div class="screen" aria-live="polite"></div></div>
+      <div class="press">
+        <h3>Go ahead. Press it.</h3>
+        <p>This is the screen guests face from the couch.</p>
+        <div class="sim-controls" style="display:grid;gap:10px;justify-items:center"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band white center" id="compare">
+  <div class="wrap">
+    <h2 class="title-sm">Which one is right for you?</h2>
+    <p class="sub">Each works on its own. Together, you get two very different kinds of video from the same night.</p>
     <div class="compare">
       <div class="col">
-        <p class="eyebrow">The Phone Booth</p>
-        <h3>Standing, quick, out loud.</h3>
-        <ul><li>Standing</li><li>Full-look video</li><li>Personal messages</li><li>Fast interactions</li><li>Public, social energy</li></ul>
+        <div class="thumb"><img class="photo" src="images/booth-hero.jpg" alt="" loading="lazy"></div>
+        <h3>The Booth</h3>
+        <p>Quick, loud, between songs.</p>
+        <ul>
+          <li>Standing<small>One guest or a few at a time</small></li>
+          <li>Full-look video<small>Head to toe, outfit included</small></li>
+          <li>Short messages<small>In and out in a minute</small></li>
+          <li>All night<small>Busiest during dancing</small></li>
+        </ul>
       </div>
-      <span class="vs" aria-hidden="true">&amp;</span>
-      <div class="col c2">
-        <p class="eyebrow">The Confessional</p>
-        <h3>Seated, slow, behind the curtain.</h3>
-        <ul><li>Seated</li><li>Group conversations</li><li>Longer stories</li><li>Private atmosphere</li><li>Late-night energy</li></ul>
-      </div>
-    </div>
-    <div class="upsell">
-      <p>Book either experience on its own, or bring both to the event.</p>
-      <a class="btn" href="#inquire">Request availability</a>
-    </div>
-  </div>
-</section>
-
-<section class="block rule">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">What you receive</p>
-      <h2>When the party ends, you keep the people.</h2>
-    </div>
-    <div class="keep">
-      <div><h3>Individual guest videos</h3><p>Every recorded message, delivered on its own.</p></div>
-      <div><h3>The event archive</h3><p>Your full collection of recordings, organized and ready to revisit.</p></div>
-      <div><h3>Highlight film</h3><p>An optional edited compilation of the best moments.</p></div>
-      <div><span class="soon">Coming later</span><h3>Private gallery</h3><p>A private online home for your recordings.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="block rule">
-  <div class="wrap custom">
-    <div>
-      <div class="head" style="margin:0">
-        <p class="eyebrow">Customization</p>
-        <h2>Your event. Your experience.</h2>
-      </div>
-      <div class="chips">
-        <span>Event names</span><span>Dates</span><span>Welcome message</span><span>Prompts</span><span>Countdown screens</span><span>Thank-you screen</span><span>Colors</span><span>Logos</span><span>Corporate branding</span><span>Backdrop styling</span><span>Confessional prompts</span>
-      </div>
-      <div class="try">
-        <div class="field"><label for="cName">Names on the mirror</label><input id="cName" maxlength="28" value="The Carters"></div>
-        <div class="field"><label for="cDate">Date</label><input id="cDate" maxlength="16" value="10.24.27"></div>
+      <div class="col">
+        <div class="thumb"><img class="photo" src="images/conf-hero.jpg" alt="" loading="lazy"></div>
+        <h3>The Confessional</h3>
+        <p>Slow, private, after dinner.</p>
+        <ul>
+          <li>Seated<small>One to four people</small></li>
+          <li>Group conversations<small>Friends talking together</small></li>
+          <li>Longer stories<small>Prompts keep it going</small></li>
+          <li>Late night<small>Busiest once everyone loosens up</small></li>
+        </ul>
       </div>
     </div>
-    <div class="sim">
-      <div class="mirror"><div class="glass"><div class="screen">
-        <span class="names" id="pName">THE CARTERS</span>
-        <span class="date" id="pDate">10.24.27</span>
-        <span class="prompt">Pick up the phone.</span>
-      </div></div></div>
-      <p class="sim-note">Type above to see your welcome screen.</p>
+    <div class="links" style="margin-top:48px"><a class="pill" href="#inquire">Bring both</a></div>
+  </div>
+</section>
+
+<section class="band center" id="how">
+  <div class="wrap">
+    <h2 class="title-sm">You pick the date.<br>We handle the rest.</h2>
+    <div class="steps">
+      <div><b>1</b><h3>Choose</h3><p>The Booth, the Confessional or both.</p></div>
+      <div><b>2</b><h3>Personalize</h3><p>We set up your screens, prompts and styling with you.</p></div>
+      <div><b>3</b><h3>We install</h3><p>Delivered and running before guests arrive.</p></div>
+      <div><b>4</b><h3>They talk</h3><p>Guests use it all night.</p></div>
+      <div><b>5</b><h3>You keep it</h3><p>Every video, delivered after the event.</p></div>
     </div>
   </div>
 </section>
 
-<section id="events" class="block rule">
+<section class="band light center">
   <div class="wrap">
-    <div class="head"><p class="eyebrow">Where we show up</p></div>
-    <p class="events"><span>Weddings</span><span>Birthdays</span><span>Anniversaries</span><span>Engagement parties</span><span>Corporate events</span><span>Galas</span><span>Brand activations</span><span>Reunions</span></p>
-  </div>
-</section>
-
-<section id="gallery" class="block rule">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Gallery</p>
-      <h2>First look.</h2>
-      <p class="lede">These are concept renders. Real event photography replaces them after our first builds.</p>
-    </div>
-    <div class="gallery">
-      <figure class="tile tall"><img class="photo" src="images/booth-mirror.jpg" alt="The Phone Booth mirror mid-countdown" loading="lazy"><figcaption>Phone Booth &middot; Mirror</figcaption></figure>
-      <figure class="tile"><img class="photo" src="images/booth-exterior.jpg" alt="The Phone Booth at a candlelit reception" loading="lazy"><figcaption>Phone Booth &middot; Exterior</figcaption></figure>
-      <figure class="tile"><img class="photo" src="images/booth-phone.jpg" alt="A black rotary wall phone" loading="lazy"><figcaption>Phone Booth &middot; Phone</figcaption></figure>
-      <figure class="tile tall conf"><img class="photo" src="images/conf-button.jpg" alt="A vintage microphone on a glowing red Confess button" loading="lazy"><figcaption>Confessional &middot; Mic and button</figcaption></figure>
-      <figure class="tile"><img class="photo" src="images/booth-countdown.jpg" alt="Countdown screen reading 3, 2, 1, you're live" loading="lazy"><figcaption>Phone Booth &middot; Countdown</figcaption></figure>
-      <figure class="tile conf"><img class="photo" src="images/conf-entrance.jpg" alt="The curtained Confessional entrance" loading="lazy"><figcaption>Confessional &middot; Entrance</figcaption></figure>
-      <figure class="tile conf"><img class="photo" src="images/conf-seating.jpg" alt="Curved red velvet seating" loading="lazy"><figcaption>Confessional &middot; Seating</figcaption></figure>
-      <figure class="tile conf"><img class="photo" src="images/conf-atmosphere.jpg" alt="A lamp-lit corner in red drapes" loading="lazy"><figcaption>Confessional &middot; Atmosphere</figcaption></figure>
+    <h2 class="title-sm">When the party ends,<br>you keep the people.</h2>
+    <div class="gets">
+      <div class="get"><h3>Every message</h3><p>Each recording delivered as its own video file.</p></div>
+      <div class="get"><h3>The event archive</h3><p>The full collection, organized in one place.</p></div>
+      <div class="get"><h3>A highlight film</h3><p>An optional edit of the best moments.</p></div>
+      <div class="get"><span class="soon">Coming later</span><h3>A private gallery</h3><p>An online home for sharing the videos with family.</p></div>
     </div>
   </div>
 </section>
 
-<section id="how" class="block rule">
+<section class="band white center" id="built">
   <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">How it works</p>
-      <h2>Five steps. You only do two of them.</h2>
-    </div>
-    <div class="how">
-      <div><span class="n">01</span><h3>Choose</h3><p>The Phone Booth, the Confessional or both.</p></div>
-      <div><span class="n">02</span><h3>Personalize</h3><p>We customize the screens, prompts and styling for your event.</p></div>
-      <div><span class="n">03</span><h3>We install</h3><p>Delivered and set up before your guests arrive.</p></div>
-      <div><span class="n">04</span><h3>They talk</h3><p>Guests use it all night.</p></div>
-      <div><span class="n">05</span><h3>You keep it</h3><p>Your recordings become a permanent digital memory.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="platform" class="block rule">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Behind the mirror</p>
-      <h2>The software is already running.</h2>
-      <p class="lede">The booths are still renders. The system that runs them is not. These screens come from our working prototype: one app that runs both experiences.</p>
-    </div>
-    <div class="proof">
-      <div>
-        <figure class="shot">
-          <img src="images/app-dashboard.jpg" alt="The working attendant screen: event name, Phone Booth mode, system status for camera, audio, trigger, display and storage, session state, and message count, beside a preview of the guest display" loading="lazy">
-          <figcaption>Attendant screen &middot; working prototype, iPad simulator</figcaption>
-        </figure>
-        <div class="screens">
-          <figure><img src="images/app-live.jpg" alt="Guest display reading You're live with a recording timer" loading="lazy"><figcaption>Phone Booth &middot; Live</figcaption></figure>
-          <figure><img src="images/app-saved.jpg" alt="Guest display reading Message saved" loading="lazy"><figcaption>Phone Booth &middot; Saved</figcaption></figure>
-          <figure><img src="images/app-confessed.jpg" alt="Guest display reading Confession saved" loading="lazy"><figcaption>Confessional &middot; Saved</figcaption></figure>
+    <h2 class="title-sm">Built to just work.</h2>
+    <p class="sub">The booths are still being built. The software that runs them already works. These screens come straight from it.</p>
+    <div class="built">
+      <div class="screens">
+        <div class="main"><img src="images/app-dashboard.jpg" alt="The attendant screen from the working app, with camera, audio, trigger, display and storage status, the message count, and a preview of the mirror" loading="lazy"></div>
+        <div class="row">
+          <img src="images/app-live.jpg" alt="Mirror screen: You're live" loading="lazy">
+          <img src="images/app-saved.jpg" alt="Mirror screen: Message saved" loading="lazy">
+          <img src="images/app-confessed.jpg" alt="Confessional screen: Confession saved" loading="lazy">
         </div>
       </div>
-      <div class="promises">
-        <div class="promise"><h3>No Wi-Fi required</h3><span class="status ok">Built in</span><p>Everything runs on site, offline. Venue internet never decides whether a message gets saved.</p></div>
-        <div class="promise"><h3>Every message kept twice</h3><span class="status">In the build</span><p>Each recording finishes on the booth's own storage first, then gets copied to a backup drive. We never delete the original until your delivery is complete.</p></div>
-        <div class="promise"><h3>Only the words glow</h3><span class="status ok">Built in</span><p>The screen behind the mirror stays true black, so guests see their reflection and a few lines of light. No screen-in-a-box look.</p></div>
-        <div class="promise"><h3>Our attendant sees everything</h3><span class="status ok">Built in</span><p>A service-side screen shows camera, audio, display, trigger and storage status plus the live message count. Guests never see it.</p></div>
-        <div class="promise"><h3>One cord, zero clutter</h3><span class="status">In the build</span><p>A single power cable goes in the back. Chargers, cables and hardware stay hidden behind the tech wall.</p></div>
-        <div class="promise"><h3>Backup power</h3><span class="status">Planned</span><p>A battery backup so an unplugged cord can't cut a guest off mid-message.</p></div>
+      <div class="facts">
+        <div><h3>No Wi-Fi needed.</h3><p>Everything runs on site. A weak venue connection can't stop a message from saving.</p></div>
+        <div><h3>One app, both experiences.</h3><p>The same system runs the Booth and the Confessional, so every event gets the same reliability.</p></div>
+        <div><h3>An attendant view.</h3><p>Status for camera, audio, display and storage, plus a live message count, on a screen guests never see.</p></div>
+        <div><h3>Two copies of everything.<span class="later">In the build</span></h3><p>Each video saves to the booth, then copies to a backup drive. Originals stay until you have your files.</p></div>
+        <div><h3>Backup power.<span class="later">Planned</span></h3><p>So an unplugged cord can't cut a guest off mid-message.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="about" class="block rule">
-  <div class="wrap about">
-    <div class="head" style="margin:0">
-      <p class="eyebrow">About</p>
-      <h2>We're not renting a telephone booth.</h2>
+<section class="band center" id="gallery">
+  <div class="wrap">
+    <h2 class="title-sm">Gallery</h2>
+    <p class="sub">Concept renders for now. Photos from real events are coming.</p>
+    <div class="gallery">
+      <figure><img class="photo" src="images/booth-exterior.jpg" alt="The Booth at a reception" loading="lazy"></figure>
+      <figure><img class="photo" src="images/booth-phone.jpg" alt="A black rotary wall phone" loading="lazy"></figure>
+      <figure><img class="photo" src="images/booth-interior.jpg" alt="Inside the Booth" loading="lazy"></figure>
+      <figure><img class="photo" src="images/booth-countdown.jpg" alt="Countdown screen" loading="lazy"></figure>
+      <figure><img class="photo" src="images/conf-entrance.jpg" alt="The curtained Confessional entrance" loading="lazy"></figure>
+      <figure><img class="photo" src="images/conf-seating.jpg" alt="Curved red velvet seating" loading="lazy"></figure>
+      <figure><img class="photo" src="images/conf-button.jpg" alt="Microphone and Confess button" loading="lazy"></figure>
+      <figure><img class="photo" src="images/conf-atmosphere.jpg" alt="A lamp-lit corner in red drapes" loading="lazy"></figure>
     </div>
-    <div class="body">
-      <p>Photos capture what the night looked like. We capture the voices, stories, reactions, outfits, personalities and late-night chaos that photos miss.</p>
-      <div class="formula" aria-label="What every booking includes">
-        <div><span>&nbsp;</span>Physical experience</div>
-        <div><span>+</span>Recording technology</div>
-        <div><span>+</span>Event customization</div>
-        <div><span>+</span>Digital keepsake</div>
-      </div>
-      <p>One recording platform runs every experience we build. <strong>The Phone Booth</strong> and <strong>the Confessional</strong> are the first two. More are on the way.</p>
-    </div>
+    <p class="sub" id="events" style="margin-top:56px">Weddings, birthdays, anniversaries, engagement parties, reunions, galas, corporate events and brand activations.</p>
   </div>
 </section>
 
-<section id="inquire" class="block rule inquire">
-  <div class="wrap inquire-grid">
-    <div>
-      <p class="eyebrow">Inquire</p>
-      <h2 style="margin-top:18px">Bring it to your event.</h2>
-      <div class="packages">
-        <strong>Custom event packages available.</strong>
-        <span>Tell us about the night and we'll build the package around it.</span>
-      </div>
-    </div>
-    <div id="formHost">
+<section class="band light center" id="about">
+  <div class="wrap">
+    <h2 class="title-sm">Made in Baltimore.</h2>
+    <p class="sub">We're a husband and wife team building event experiences that put your guests on camera. We bring them, set them up and hand you the videos when it's over. The Booth and the Confessional are the first two.</p>
+  </div>
+</section>
+
+<section class="band light center" id="inquire" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="title-sm">Ask about your date.</h2>
+    <p class="sub">Every event is priced on its own. Tell us about yours and we'll come back with availability and options.</p>
+    <div class="ask" id="formHost">
       <form id="inq" novalidate>
-        <div class="field"><label for="fName">Name</label><input id="fName" name="name" autocomplete="name" required></div>
-        <div class="field"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required></div>
-        <div class="field"><label for="fPhone">Phone</label><input id="fPhone" name="phone" type="tel" autocomplete="tel"></div>
-        <div class="field"><label for="fType">Event type</label>
+        <div><label for="fName">Name</label><input id="fName" name="name" autocomplete="name" required></div>
+        <div><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required></div>
+        <div><label for="fPhone">Phone</label><input id="fPhone" name="phone" type="tel" autocomplete="tel"></div>
+        <div><label for="fType">Type of event</label>
           <select id="fType" name="type" required>
-            <option value="">Select one</option>
-            <option>Wedding</option><option>Birthday</option><option>Anniversary</option><option>Engagement party</option><option>Corporate event</option><option>Gala</option><option>Brand activation</option><option>Reunion</option><option>Other</option>
+            <option value="">Choose one</option>
+            <option>Wedding</option><option>Birthday</option><option>Anniversary</option><option>Engagement party</option><option>Corporate event</option><option>Gala</option><option>Brand activation</option><option>Reunion</option><option>Something else</option>
           </select></div>
-        <div class="field"><label for="fDate">Event date</label><input id="fDate" name="date" type="date" required></div>
-        <div class="field"><label for="fVenue">Venue / city</label><input id="fVenue" name="venue"></div>
-        <div class="field"><label for="fGuests">Estimated guest count</label><input id="fGuests" name="guests" type="number" min="1" inputmode="numeric"></div>
-        <div class="field full">
-          <span class="legend" id="expLegend">Experience</span>
+        <div><label for="fDate">Date</label><input id="fDate" name="date" type="date" required></div>
+        <div><label for="fVenue">Venue or city</label><input id="fVenue" name="venue"></div>
+        <div class="full"><label for="fGuests">Roughly how many guests?</label><input id="fGuests" name="guests" type="number" min="1" inputmode="numeric"></div>
+        <div class="full">
+          <label id="expLegend">Which experience?</label>
           <fieldset class="choices" aria-labelledby="expLegend">
-            <label><input type="radio" name="exp" id="eBooth" value="Phone Booth">Phone Booth</label>
-            <label><input type="radio" name="exp" id="eConf" value="Confessional">Confessional</label>
-            <label><input type="radio" name="exp" id="eBoth" value="Both" checked>Both</label>
-            <label><input type="radio" name="exp" id="eUnsure" value="Not sure">Not sure</label>
+            <label><input type="radio" name="exp" value="The Booth">The Booth</label>
+            <label><input type="radio" name="exp" value="The Confessional">The Confessional</label>
+            <label><input type="radio" name="exp" value="Both" checked>Both</label>
+            <label><input type="radio" name="exp" value="Not sure yet">Not sure yet</label>
           </fieldset>
         </div>
-        <div class="field full"><label for="fNotes">Tell us about your event (optional)</label><textarea id="fNotes" name="notes"></textarea></div>
-        <p class="err field full" id="fErr" role="alert"></p>
-        <div class="submit-row">
-          <p class="concept">Concept preview. Inquiries open at launch, so this form doesn't send anything yet.</p>
-          <button class="btn" type="submit">Start my inquiry</button>
+        <div class="full"><label for="fNotes">Anything else we should know?</label><textarea id="fNotes" name="notes"></textarea></div>
+        <p class="err full" id="fErr" role="alert"></p>
+        <div class="full send">
+          <button class="pill" type="submit">Send inquiry</button>
+          <p class="fine">This form isn't connected yet, so nothing gets sent.</p>
         </div>
       </form>
     </div>
@@ -737,99 +546,71 @@ footer .family em{color:var(--gold)}
 
 <footer>
   <div class="wrap">
-    <div class="family">
-      <span>The Phone Booth <em>Pick up. You're live.</em></span>
-      <span>The Confessional <em>Sit down. Press the button. Tell us everything.</em></span>
-    </div>
-    <div class="lines">
-      <span class="mark">Off the <i>Record</i></span>
-      <span>Event recording experiences &middot; Baltimore, MD</span>
+    <p>The Booth and the Confessional are concept experiences. Images on this site are concept renders. Pricing is quoted per event.</p>
+    <div class="row">
+      <span>Off the Record &middot; Baltimore, Maryland</span>
+      <span><a href="#booth">The Booth</a> &nbsp;|&nbsp; <a href="#confessional">The Confessional</a> &nbsp;|&nbsp; <a href="#inquire">Inquire</a></span>
     </div>
   </div>
 </footer>
 
-<div class="sticky"><a class="btn" href="#inquire">Inquire</a></div>
+<div class="sticky"><a class="pill" href="#inquire">Ask about your date</a></div>
 
 <script>
 (function(){
   "use strict";
   const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
-  /* One engine, many experiences. Add a new experience by adding an entry here. */
+  /* One engine runs every experience. A new experience is a new entry here. */
   const EXPERIENCES = {
-    phoneBooth: {
-      idle: { names: "BRIAN &amp; KIM", date: "OCTOBER 24, 2027", prompt: "PICK UP THE PHONE" },
-      ready: null,
-      countdown: 3,
-      liveLabel: "YOU'RE LIVE",
-      saved: "MESSAGE SAVED <em>&hearts;</em>",
-      startLabel: "Pick up",
-      stopLabel: "Hang up",
-      maxSeconds: 12
+    booth: {
+      idle: () => ({ names: esc(document.getElementById("cName").value.trim() || "Your names").toUpperCase(), date: esc(document.getElementById("cDate").value.trim() || "Your date").toUpperCase(), prompt: "PICK UP THE PHONE" }),
+      ready: null, countdown: 3, liveLabel: "YOU'RE LIVE",
+      saved: "Message saved <em>&hearts;</em>",
+      startLabel: "Pick up the phone", stopLabel: "Hang up", maxSeconds: 12
     },
     confessional: {
-      idle: { names: "THE CONFESSIONAL", date: "TAKE A SEAT", prompt: "PRESS THE BUTTON" },
-      ready: "READY?",
-      countdown: 3,
-      liveLabel: "CONFESS.",
-      saved: "CONFESSION <em>SAVED</em>",
-      startLabel: "Press to confess",
-      stopLabel: "Press to finish",
-      maxSeconds: 15,
-      bigButton: true
+      idle: () => ({ names: "THE CONFESSIONAL", date: "TAKE A SEAT", prompt: "PRESS THE BUTTON" }),
+      ready: "Ready?", countdown: 3, liveLabel: "CONFESS",
+      saved: "Confession <em>saved</em>",
+      startLabel: "Press to confess", stopLabel: "Press to finish", maxSeconds: 15, bigButton: true
     }
   };
 
   function createSim(root, cfg){
     const screen = root.querySelector(".screen");
     const controls = root.querySelector(".sim-controls");
-    let timers = [], tick = null, state = "idle";
+    let timers = [], tick = null, state = "idle", btn, label;
     const clear = () => { timers.forEach(clearTimeout); timers = []; if (tick) { clearInterval(tick); tick = null; } };
     const later = (fn, ms) => timers.push(setTimeout(fn, reduce ? Math.min(ms, 400) : ms));
-
-    let btn, label;
     if (cfg.bigButton) {
-      btn = document.createElement("button");
-      btn.className = "confess-btn";
-      label = document.createElement("span");
-      label.className = "btn-label";
-      const wrapper = document.createElement("div");
-      wrapper.style.cssText = "display:grid;gap:12px;justify-items:center";
-      wrapper.append(btn, label);
-      controls.append(wrapper);
+      btn = document.createElement("button"); btn.className = "confess-btn";
+      label = document.createElement("span"); label.className = "btn-label";
+      controls.append(btn, label);
     } else {
-      btn = document.createElement("button");
-      btn.className = "btn";
-      controls.append(btn);
+      btn = document.createElement("button"); btn.className = "pill"; controls.append(btn);
     }
     const setBtn = (text, disabled) => {
-      if (cfg.bigButton) { label.textContent = text; btn.setAttribute("aria-label", text); }
-      else btn.textContent = text;
+      if (cfg.bigButton) { label.textContent = text; btn.setAttribute("aria-label", text); } else btn.textContent = text;
       btn.disabled = !!disabled;
     };
-
     function idle(){
       clear(); state = "idle";
-      screen.innerHTML = '<span class="names">' + cfg.idle.names + '</span><span class="date">' + cfg.idle.date + '</span><span class="prompt">' + cfg.idle.prompt + '</span>';
+      const i = cfg.idle();
+      screen.innerHTML = '<span class="names">' + i.names + '</span><span class="date">' + i.date + '</span><span class="prompt">' + i.prompt + '</span>';
       setBtn(cfg.startLabel, false);
     }
     function start(){
       clear(); state = "counting"; setBtn(cfg.stopLabel, true);
       let n = cfg.countdown;
-      const show = () => { screen.innerHTML = '<span class="big">' + n + '</span>'; };
-      const run = () => {
-        show();
-        later(() => { n -= 1; if (n > 0) run(); else live(); }, 900);
-      };
-      if (cfg.ready) { screen.innerHTML = '<span class="saved">' + cfg.ready + '</span>'; later(run, 1100); }
-      else run();
+      const run = () => { screen.innerHTML = '<span class="big">' + n + '</span>'; later(() => { n -= 1; if (n > 0) run(); else live(); }, 900); };
+      if (cfg.ready) { screen.innerHTML = '<span class="saved">' + cfg.ready + '</span>'; later(run, 1100); } else run();
     }
     function live(){
       state = "live"; setBtn(cfg.stopLabel, false);
       let s = 0;
-      const draw = () => {
-        screen.innerHTML = '<span class="live"><span class="dot"></span>' + cfg.liveLabel + '</span><span class="timer">0:' + String(s).padStart(2, "0") + ' / 2:00</span>';
-      };
+      const draw = () => { screen.innerHTML = '<span class="live"><span class="dot"></span>' + cfg.liveLabel + '</span><span class="timer">0:' + String(s).padStart(2, "0") + ' / 2:00</span>'; };
       draw();
       tick = setInterval(() => { s += 1; draw(); if (s >= cfg.maxSeconds) save(); }, 1000);
     }
@@ -839,78 +620,56 @@ footer .family em{color:var(--gold)}
       setBtn(cfg.startLabel, true);
       later(idle, 3200);
     }
-    btn.addEventListener("click", () => {
-      if (state === "idle") start();
-      else if (state === "live") save();
-    });
+    btn.addEventListener("click", () => { if (state === "idle") start(); else if (state === "live") save(); });
     idle();
+    return { refresh: () => { if (state === "idle") idle(); } };
   }
 
-  createSim(document.getElementById("boothSim"), EXPERIENCES.phoneBooth);
+  const booth = createSim(document.getElementById("boothSim"), EXPERIENCES.booth);
   createSim(document.getElementById("confSim"), EXPERIENCES.confessional);
+  ["cName", "cDate"].forEach(id => document.getElementById(id).addEventListener("input", booth.refresh));
 
-  /* Demo film play/pause (paused by default for reduced motion) */
+  /* Demo film */
   const film = document.getElementById("demoFilm"), filmBtn = document.getElementById("filmToggle");
   const syncFilm = () => { filmBtn.textContent = film.paused ? "Play" : "Pause"; };
   if (reduce) { film.removeAttribute("autoplay"); film.pause(); }
   film.addEventListener("play", syncFilm); film.addEventListener("pause", syncFilm);
-  filmBtn.addEventListener("click", () => { if (film.paused) { const pr = film.play(); if (pr && pr.catch) pr.catch(() => {}); } else film.pause(); });
+  filmBtn.addEventListener("click", () => { if (film.paused) { const p = film.play(); if (p && p.catch) p.catch(() => {}); } else film.pause(); });
   syncFilm();
 
-  /* Mobile menu */
-  const burger = document.getElementById("burger");
-  const drawer = document.getElementById("drawer");
+  /* Menu */
+  const burger = document.getElementById("burger"), drawer = document.getElementById("drawer");
   burger.addEventListener("click", () => {
-    const open = drawer.hidden;
-    drawer.hidden = !open;
-    burger.setAttribute("aria-expanded", String(open));
-    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    const open = drawer.hidden; drawer.hidden = !open;
+    burger.setAttribute("aria-expanded", String(open)); burger.textContent = open ? "Close" : "Menu";
   });
-  drawer.addEventListener("click", e => { if (e.target.tagName === "A") { drawer.hidden = true; burger.setAttribute("aria-expanded", "false"); } });
+  drawer.addEventListener("click", e => { if (e.target.tagName === "A") { drawer.hidden = true; burger.setAttribute("aria-expanded", "false"); burger.textContent = "Menu"; } });
 
-  /* Customization preview */
-  const cName = document.getElementById("cName"), cDate = document.getElementById("cDate");
-  const pName = document.getElementById("pName"), pDate = document.getElementById("pDate");
-  const sync = () => {
-    pName.textContent = (cName.value.trim() || "Your names").toUpperCase();
-    pDate.textContent = cDate.value.trim() || "Your date";
-  };
-  cName.addEventListener("input", sync); cDate.addEventListener("input", sync); sync();
-
-  /* Inquiry form (concept: validates and confirms, sends nothing) */
-  const form = document.getElementById("inq");
-  const err = document.getElementById("fErr");
+  /* Inquiry form: checks the fields and shows what would be sent. Not connected yet. */
+  const form = document.getElementById("inq"), err = document.getElementById("fErr");
   form.addEventListener("submit", e => {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(form).entries());
     const missing = [];
     if (!d.name.trim()) missing.push("your name");
-    if (!/^\S+@\S+\.\S+$/.test(d.email.trim())) missing.push("a valid email");
-    if (!d.type) missing.push("the event type");
-    if (!d.date) missing.push("the event date");
-    if (missing.length) {
-      err.textContent = "Add " + missing.join(", ").replace(/, ([^,]*)$/, " and $1") + " to continue.";
-      return;
-    }
+    if (!/^\S+@\S+\.\S+$/.test(d.email.trim())) missing.push("an email address");
+    if (!d.type) missing.push("the type of event");
+    if (!d.date) missing.push("the date");
+    if (missing.length) { err.textContent = "Please add " + missing.join(", ").replace(/, ([^,]*)$/, " and $1") + "."; return; }
     err.textContent = "";
-    const host = document.getElementById("formHost");
-    const box = document.createElement("div");
-    box.className = "done";
-    const h = document.createElement("h3"); h.textContent = "We'll take it from here.";
-    const p = document.createElement("p"); p.textContent = "Concept preview: nothing was sent. Here is what we would receive.";
+    const box = document.createElement("div"); box.className = "done";
+    const h = document.createElement("h3"); h.textContent = "Thanks. We'll be in touch.";
+    const p = document.createElement("p"); p.className = "fine"; p.textContent = "This form isn't connected yet, so nothing was sent. Here's what we would have received.";
     const dl = document.createElement("dl");
     [["Name", d.name], ["Email", d.email], ["Phone", d.phone], ["Event", d.type], ["Date", d.date], ["Venue", d.venue], ["Guests", d.guests], ["Experience", d.exp], ["Notes", d.notes]]
       .filter(r => r[1] && String(r[1]).trim())
       .forEach(([k, v]) => { const dt = document.createElement("dt"); dt.textContent = k; const dd = document.createElement("dd"); dd.textContent = v; dl.append(dt, dd); });
-    const back = document.createElement("button"); back.className = "btn ghost"; back.type = "button"; back.textContent = "Edit inquiry";
-    back.style.justifySelf = "start";
-    back.addEventListener("click", () => { box.replaceWith(form); });
-    box.append(h, p, dl, back);
-    form.replaceWith(box);
-    box.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+    const back = document.createElement("button"); back.className = "pill"; back.type = "button"; back.textContent = "Edit"; back.style.justifySelf = "center";
+    back.style.background = "#1d1d1f"; back.style.color = "#fff"; back.style.borderColor = "#1d1d1f";
+    back.addEventListener("click", () => box.replaceWith(form));
+    box.append(h, p, dl, back); form.replaceWith(box);
   });
 })();
 </script>
-
 </body>
 </html>
