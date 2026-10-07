@@ -12,8 +12,8 @@ Static site, no build step. Served by GitHub Pages from `main` at the repo root.
 ```text
 index.html                     The whole site (HTML, CSS, JS in one file)
 images/                        Concept renders and screens from the working app
-media/phone-booth-demo.mp4     16s concept demo of the 3-2-1 sequence
-media/phone-booth-demo-poster.jpg
+media/phone-booth-demo-v2.mp4     16s concept demo of the 3-2-1 sequence
+media/phone-booth-demo-poster-v2.jpg
 ```
 
 ## Editing
